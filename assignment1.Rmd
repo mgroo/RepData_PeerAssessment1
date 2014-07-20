@@ -1,0 +1,23 @@
+Reproducible Research Assignment 1
+========================================================
+
+```{r}
+### Load data in dataset (ds)
+ds <- read.csv("data/activity.csv", stringsAsFactors = FALSE)
+
+### convert NA values to 0 values
+ds$steps[is.na(ds$steps)] <- 0
+
+### aggregate data
+steps_date <- aggregate(steps ~ date, data=ds, FUN=sum)
+
+### plot data 
+barplot(steps_date$steps, names.arg=steps_date$date, xlab="date", ylab="steps")
+
+# get mean
+mean_steps_day <- mean(agg$x)
+# get median
+median_steps_day <- median(agg$x)
+
+```
+
